@@ -1,9 +1,46 @@
+@use "../abstract/vars" as *;
+@use "../abstract/mixins" as *;
+
 /*
   ==== Logo ====
 */
 
 .logo {
+  z-index: 3;
+
   a {
-    color: white;
+    &:link,
+    &:visited {
+      display: inline-block;
+      font-weight: var(--fw-medium);
+      font-size: rem(28);
+      line-height: rem(34);
+      color: var(--black-co);
+      transition: all 0.3s;
+
+      @media (max-width: $breakpoint992) {
+        font-size: rem(26);
+        line-height: rem(32);
+      }
+      @media (max-width: $breakpoint768) {
+        font-size: rem(24);
+        line-height: rem(30);
+      }
+      @media (max-width: $breakpoint480) {
+        font-size: rem(22);
+        line-height: rem(28);
+      }
+
+      &.active {
+        color: var(--white-co);
+      }
+    }
+
+    @media (any-hover: hover) {
+      &:hover,
+      &:active {
+        transform: scale(1.05);
+      }
+    }
   }
 }
